@@ -56,7 +56,7 @@ body {
   padding: 0;
 }
 
-.square {
+.number {
   background: #fff;
   border: 1px solid #999;
   float: left;
@@ -69,6 +69,29 @@ body {
   padding: 0;
   text-align: center;
   width: 34px;
+  margin-top: 30px;
+}
+
+.answer {
+  border-color: red;
+  width: 64px;
+  margin-top: 30px;
+}
+
+.verify {
+  background:#f8f164;
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+  color: blueviolet;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: 30px;
+  padding: 0;
+  text-align: center;
+  width: 120px;
+  margin-left: 10px;
 }
 
 .board-row:after {
@@ -87,4 +110,8 @@ body {
 
 .game-info {
   margin-left: 20px;
+}
+
+.logo {
+  width: 640px;
 }
