@@ -5,7 +5,7 @@ export function Exercise({ val1, val2, val3, onCorrect, onFail }) {
     if (v1 + v2 + v3 == value) {
       onCorrect();
     } else {
-      setValue('');
+      setValue('null');
       onFail();
     }
   }
@@ -31,25 +31,29 @@ export function Exercise({ val1, val2, val3, onCorrect, onFail }) {
 }
 
 export default function Exercises() {
-  const [logo, setLogo] = useState('img/question.png');
+  const [logo, setLogo] = useState('/img/question.png');
   function onCorrect(logo) {
-    setLogo("img/" + logo + ".png");
+    setLogo("/img/" + logo + ".png");
+  }
+
+  function setDefaultLogo() {
+    setLogo("/img/question.png");
   }
   return (
     <div className="game">
       <div className="game-board">
-        <Exercise val1={1} val2={2} val3={3} onCorrect={() => onCorrect('mercedes')} onFail={() => setLogo("img/question.png")} />
-        <Exercise val1={2} val2={4} val3={6} onCorrect={() => onCorrect('bmw')} onFail={() => setLogo("img/question.png")} />
-        <Exercise val1={5} val2={9} val3={10} onCorrect={() => onCorrect('lexus')} onFail={() => setLogo("img/question.png")} />
-        <Exercise val1={7} val2={9} val3={9} onCorrect={() => onCorrect('ford')} onFail={() => setLogo("img/question.png")} />
-        <Exercise val1={8} val2={8} val3={8} onCorrect={() => onCorrect('nissan')} onFail={() => setLogo("img/question.png")} />
-        <Exercise val1={6} val2={7} val3={8} onCorrect={() => onCorrect('kia')} onFail={() => setLogo("img/question.png")} />
-        <Exercise val1={5} val2={9} val3={7} onCorrect={() => onCorrect('tesla')} onFail={() => setLogo("img/question.png")} />
-        <Exercise val1={8} val2={9} val3={11} onCorrect={() => onCorrect('honda')} onFail={() => setLogo("img/question.png")} />
-        <Exercise val1={4} val2={8} val3={6} onCorrect={() => onCorrect('renault')} onFail={() => setLogo("img/question.png")} />
+        <Exercise val1={1} val2={2} val3={3} onCorrect={() => onCorrect('mercedes')} onFail={setDefaultLogo} />
+        <Exercise val1={2} val2={4} val3={6} onCorrect={() => onCorrect('bmw')} onFail={setDefaultLogo} />
+        <Exercise val1={5} val2={9} val3={10} onCorrect={() => onCorrect('lexus')} onFail={setDefaultLogo} />
+        <Exercise val1={7} val2={9} val3={9} onCorrect={() => onCorrect('ford')} onFail={setDefaultLogo} />
+        <Exercise val1={8} val2={8} val3={8} onCorrect={() => onCorrect('nissan')} onFail={setDefaultLogo} />
+        <Exercise val1={6} val2={7} val3={8} onCorrect={() => onCorrect('kia')} onFail={setDefaultLogo} />
+        <Exercise val1={5} val2={9} val3={7} onCorrect={() => onCorrect('tesla')} onFail={setDefaultLogo} />
+        <Exercise val1={8} val2={9} val3={11} onCorrect={() => onCorrect('honda')} onFail={setDefaultLogo} />
+        <Exercise val1={4} val2={8} val3={6} onCorrect={() => onCorrect('renault')} onFail={setDefaultLogo} />
       </div>
       <div className="game-info">
-        <img src={logo} className='logo' />
+        <img src={`${process.env.PUBLIC_URL}${logo}`}  className='logo' />
       </div>
     </div>
   )
