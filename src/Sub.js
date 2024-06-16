@@ -29,13 +29,13 @@ export function Exercise({ val1, val2, onCorrect, onFail }) {
 }
 
 export default function Exercises() {
-  const [logo, setLogo] = useState('/img/question.png');
+  const [logo, setLogo] = useState('/bakugans/bakugan.png');
   function onCorrect(logo) {
-    setLogo("/img/" + logo + ".png");
+    setLogo("/bakugans/" + logo + ".png");
   }
 
   function setDefaultLogo() {
-    setLogo("/img/bakugan.png");
+    setLogo("/bakugans/bakugan.png");
   }
   return (
     <div className="game">
